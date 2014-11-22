@@ -1,7 +1,7 @@
 package com.minegusta.hubfun.listeners;
 
 
-import com.minegusta.hubfun.Main;
+import com.minegusta.hubfun.util.PlayEffect;
 import org.bukkit.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -52,10 +52,12 @@ public class PlayerListener implements Listener
         if (!e.hasBlock() && e.getAction() == Action.LEFT_CLICK_AIR && e.getPlayer().getPassenger() != null && e.getPlayer().getPassenger() instanceof Player)
         {
             Player passenger = (Player) e.getPlayer().getPassenger();
-            Vector v = e.getPlayer().getVelocity();
+            Vector v = e.getPlayer().getLocation().getDirection();
             passenger.eject();
-            passenger.setVelocity(v.add(new Vector(0, 1, 0)).multiply(4.0).normalize());
-            launchEffect((Player) e.getPlayer().getPassenger());
+            e.getPlayer().eject();
+            passenger.teleport(passenger.getLocation().add(v.getX(), 0.01, v.getZ()));
+            passenger.setVelocity(v.add(new Vector(v.getX(), v.getY(), v.getZ()).multiply(1.6)));
+            new PlayEffect(passenger);
         }
     }
 
@@ -76,28 +78,5 @@ public class PlayerListener implements Listener
     public void onLeaveHub(PlayerQuitEvent e)
     {
         e.setQuitMessage(ChatColor.GRAY + e.getPlayer().getName() + " left the hub...");
-    }
-
-    public static void launchEffect(Player pl) {
-        for (int i = 0; i <= 20 * 3; i++) {
-            if (i % 4 != 0) return;
-            else {
-                final Location location = pl.getLocation();
-                final Player p = pl;
-                Bukkit.getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, new Runnable() {
-                    @Override
-                    public void run() {
-
-                        p.getWorld().playSound(location, Sound.CHICKEN_EGG_POP, 5F, 1F);
-                        p.getWorld().spigot().playEffect(location, Effect.FLAME, 1, 1, 0.5F, 2F, 0.5F, 0.5F, 15, 5);
-                        p.getWorld().spigot().playEffect(location, Effect.CLOUD, 1, 1, 1F, 2F, 1F, 0.5F, 30, 5);
-                        p.getWorld().spigot().playEffect(location, Effect.MAGIC_CRIT, 1, 1, 0.5F, 1F, 0.5F, 0.5F, 20, 5);
-                        p.getWorld().spigot().playEffect(location, Effect.PARTICLE_SMOKE, 1, 1, 0.5F, 1F, 0.5F, 0.5F, 40, 5);
-                        p.getWorld().spigot().playEffect(location, Effect.POTION_SWIRL, 1, 1, 0.5F, 1F, 0.5F, 0.5F, 40, 5);
-
-                    }
-                }, i);
-            }
-        }
     }
 }
