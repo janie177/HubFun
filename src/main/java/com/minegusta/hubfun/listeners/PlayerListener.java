@@ -11,10 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
-import org.bukkit.event.player.PlayerInteractEntityEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.util.Vector;
 
 public class PlayerListener implements Listener
@@ -72,6 +69,19 @@ public class PlayerListener implements Listener
     public void onJoinHub(PlayerJoinEvent e)
     {
         e.setJoinMessage(ChatColor.GRAY + e.getPlayer().getName() + " joined the hub...");
+    }
+
+    @EventHandler(priority = EventPriority.LOWEST)
+    public void onCrouch(PlayerToggleSneakEvent e) {
+        if (e.getPlayer().getPassenger() != null && e.getPlayer().getPassenger() instanceof Player) {
+            Player passenger = (Player) e.getPlayer().getPassenger();
+            Vector v = e.getPlayer().getLocation().getDirection();
+            passenger.eject();
+            e.getPlayer().eject();
+            passenger.teleport(passenger.getLocation().add(v.getX(), 0.01, v.getZ()));
+            passenger.setVelocity(v.add(new Vector(v.getX(), v.getY(), v.getZ()).multiply(1.6)));
+            new PlayEffect(passenger);
+        }
     }
 
     @EventHandler(priority = EventPriority.LOWEST)
