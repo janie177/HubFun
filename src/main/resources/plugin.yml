@@ -1,0 +1,4 @@
+main: com.minegusta.hubfun.Main
+name: HubFun
+version: ${project.version}
+author: janie177
