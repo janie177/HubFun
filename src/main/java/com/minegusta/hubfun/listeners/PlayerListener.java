@@ -25,14 +25,14 @@ public class PlayerListener implements Listener
         Entity damager = event.getDamager();
         Entity entity = event.getEntity();
         if (damager instanceof Player) {
-            entity.getWorld().playSound(entity.getLocation(), Sound.CHICKEN_EGG_POP, 5F, 1F);
+            entity.getWorld().playSound(entity.getLocation(), Sound.CHICKEN_EGG_POP, 1F, 1F);
             entity.playEffect(EntityEffect.WOLF_SMOKE);
             Location location = entity.getLocation();
-            entity.getWorld().spigot().playEffect(location, Effect.HEART, 1, 1, 0.35F, 1.5F, 0.35F, 0.5F, 15, 5);
+            entity.getWorld().spigot().playEffect(location, Effect.HEART, 1, 1, 1F, 1.5F, 1F, 0.5F, 7, 5);
             entity.getWorld().spigot().playEffect(location, Effect.FLAME, 1, 1, 0.5F, 2F, 0.5F, 0.5F, 15, 5);
             entity.getWorld().spigot().playEffect(location, Effect.CLOUD, 1, 1, 1F, 2F, 1F, 0.5F, 30, 5);
-            entity.getWorld().spigot().playEffect(location, Effect.MAGIC_CRIT, 1, 1, 0.5F, 1F, 0.5F, 0.5F, 20, 5);
-            entity.getWorld().spigot().playEffect(location, Effect.PARTICLE_SMOKE, 1, 1, 0.5F, 1F, 0.5F, 0.5F, 40, 5);
+            entity.getWorld().spigot().playEffect(location, Effect.MAGIC_CRIT, 1, 1, 0.5F, 1F, 0.5F, 0.5F, 5, 5);
+            entity.getWorld().spigot().playEffect(location, Effect.PARTICLE_SMOKE, 1, 1, 0.5F, 1F, 0.5F, 0.5F, 5, 5);
         }
     }
 
