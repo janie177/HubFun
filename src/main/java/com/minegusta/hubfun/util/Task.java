@@ -13,6 +13,6 @@ public class Task {
                     if (p.getLocation().getY() < 1.0) p.teleport(p.getWorld().getSpawnLocation());
                 }
             }
-        }, 20 * 10, 20);
+        }, 20, 20);
     }
 }
