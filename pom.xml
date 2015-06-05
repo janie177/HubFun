@@ -23,7 +23,7 @@
     </repositories>
 
     <properties> <!-- It is important to keep up to date manually. -->
-        <spigot.version>1.7.10-R0.1-SNAPSHOT</spigot.version>
+        <spigot.version>1.8.6-R0.1-SNAPSHOT</spigot.version>
     </properties>
 
     <dependencies>
