@@ -19,6 +19,9 @@ public class Main extends JavaPlugin {
         //Listeners
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
 
+        //config
+        saveDefaultConfig();
+
         //Bar api
         if (Bukkit.getPluginManager().isPluginEnabled("BarAPI")) {
             BarMessageTask.start();
