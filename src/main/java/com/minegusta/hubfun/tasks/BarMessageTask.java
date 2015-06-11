@@ -18,7 +18,9 @@ public class BarMessageTask {
 
             if (count >= messages.size()) count = 0;
 
-            Bukkit.getOnlinePlayers().stream().forEach(p -> BarAPI.setMessage(p, ChatColor.translateAlternateColorCodes('&', messages.get(count)), count * percentagePerMessage));
+            float percentage = count * percentagePerMessage;
+
+            Bukkit.getOnlinePlayers().stream().forEach(p -> BarAPI.setMessage(p, ChatColor.translateAlternateColorCodes('&', messages.get(count)), percentage));
 
             count++;
 
