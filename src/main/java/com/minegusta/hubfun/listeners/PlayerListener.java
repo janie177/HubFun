@@ -84,6 +84,15 @@ public class PlayerListener implements Listener
         }
     }
 
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onPlayerMove(PlayerMoveEvent e) {
+        Player p = e.getPlayer();
+        if (p.isSneaking() && !p.isFlying() && p.getLocation().getY() < 50) {
+            Vector victor = ((p.getPassenger() != null) && (p.getLocation().getDirection().getY() > 0.0D) ? p.getLocation().getDirection().clone().setY(0) : p.getLocation().getDirection()).normalize().multiply(1.3D);
+            p.setVelocity(victor);
+        }
+    }
+
     @EventHandler(priority = EventPriority.LOWEST)
     public void onLeaveHub(PlayerQuitEvent e)
     {
