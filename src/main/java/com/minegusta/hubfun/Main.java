@@ -1,6 +1,7 @@
 package com.minegusta.hubfun;
 
 import com.minegusta.hubfun.listeners.PlayerListener;
+import com.minegusta.hubfun.util.BossBarTask;
 import com.minegusta.hubfun.util.Task;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -21,6 +22,13 @@ public class Main extends JavaPlugin {
         //config
         saveDefaultConfig();
 
+        //BarAPI
+        if (Bukkit.getPluginManager().isPluginEnabled("BossBarAPI")) {
+            Bukkit.broadcastMessage("BossBarAPI Is Enabled!");
+            BossBarTask.init(getConfig());
+            BossBarTask.start();
+        }
+
         //Task
         SPAWNTASK = Task.start();
     }
@@ -28,5 +36,6 @@ public class Main extends JavaPlugin {
     @Override
     public void onDisable() {
         Bukkit.getScheduler().cancelTask(SPAWNTASK);
+        BossBarTask.stop();
     }
 }
