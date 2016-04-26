@@ -13,7 +13,7 @@ messages:
     color: GREEN
   wasteland:
     message: '&4Can you survive Wasteland? Many have tried...'
-    style: 'NOTCHED_5'
+    style: 'NOTCHED_6'
     color: RED
   reddit:
     message: '&4Join our SubReddit at /r/Minegusta'
