@@ -23,7 +23,7 @@ public class PlayEffect {
                     public void run() {
 
                         if (p == null || !p.isOnline()) return;
-                        p.getWorld().playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 5F, 1F);
+                        p.getWorld().playSound(p.getLocation(), Sound.ENTITY_CHICKEN_EGG, 5F, 1F);
                         p.getWorld().spigot().playEffect(p.getLocation(), Effect.FLAME, 1, 1, 0.5F, 2F, 0.5F, 0.5F, 6, 20);
                         p.getWorld().spigot().playEffect(p.getLocation(), Effect.CLOUD, 1, 1, 1F, 2F, 1F, 0.5F, 6, 20);
                         p.getWorld().spigot().playEffect(p.getLocation(), Effect.MAGIC_CRIT, 1, 1, 0.5F, 1F, 0.5F, 0.5F, 6, 20);

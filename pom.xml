@@ -20,14 +20,10 @@
             <id>md_5-releases</id>
             <url>http://repo.md-5.net/content/repositories/snapshots</url>
         </repository>
-        <repository>
-            <id>confuser-repo</id>
-            <url>http://ci.frostcast.net/plugin/repository/everything</url>
-        </repository>
     </repositories>
 
     <properties> <!-- It is important to keep up to date manually. -->
-        <spigot.version>1.8.7-R0.1-SNAPSHOT</spigot.version>
+        <spigot.version>1.9.2-R0.1-SNAPSHOT</spigot.version>
     </properties>
 
     <dependencies>
@@ -38,11 +34,6 @@
             <scope>compile</scope>
             <type>jar</type>
             <optional>false</optional>
-        </dependency>
-        <dependency>
-            <groupId>me.confuser</groupId>
-            <artifactId>BarAPI</artifactId>
-            <version>3.3</version>
         </dependency>
     </dependencies>
 

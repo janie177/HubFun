@@ -1,7 +1,7 @@
 package com.minegusta.hubfun;
 
 import com.minegusta.hubfun.listeners.PlayerListener;
-import com.minegusta.hubfun.tasks.BarMessageTask;
+import com.minegusta.hubfun.util.FlyTask;
 import com.minegusta.hubfun.util.Task;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -22,10 +22,8 @@ public class Main extends JavaPlugin {
         //config
         saveDefaultConfig();
 
-        //Bar api
-        if (Bukkit.getPluginManager().isPluginEnabled("BarAPI")) {
-            BarMessageTask.start();
-        }
+        //Fly task
+        FlyTask.start();
 
         //Task
         SPAWNTASK = Task.start();
@@ -34,6 +32,6 @@ public class Main extends JavaPlugin {
     @Override
     public void onDisable() {
         Bukkit.getScheduler().cancelTask(SPAWNTASK);
-        BarMessageTask.stop();
+        FlyTask.stop();
     }
 }
