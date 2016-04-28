@@ -68,7 +68,7 @@ public class PlayerListener implements Listener
     @EventHandler(priority = EventPriority.LOWEST)
     public void onJoinHub(PlayerJoinEvent e)
     {
-        e.setJoinMessage(ChatColor.GRAY + e.getPlayer().getName() + " joined the hub...");
+        e.setJoinMessage(ChatColor.GRAY + e.getPlayer().getName() + ChatColor.GRAY + " joined the hub...");
     }
 
     @EventHandler(priority = EventPriority.LOWEST)
@@ -96,6 +96,6 @@ public class PlayerListener implements Listener
     @EventHandler(priority = EventPriority.LOWEST)
     public void onLeaveHub(PlayerQuitEvent e)
     {
-        e.setQuitMessage(ChatColor.GRAY + e.getPlayer().getName() + " left the hub...");
+        e.setQuitMessage(ChatColor.GRAY + e.getPlayer().getName() + ChatColor.GRAY + " left the hub...");
     }
 }
