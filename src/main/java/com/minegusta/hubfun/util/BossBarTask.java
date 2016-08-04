@@ -17,6 +17,8 @@ public class BossBarTask {
 	private static final List<BossBarMessage> messages = Lists.newArrayList();
 
 	public static void init(FileConfiguration conf) {
+		int amount = 0;
+		int failed = 0;
 		for (String path : conf.getConfigurationSection("messages").getKeys(false)) {
 			try {
 				String message = conf.getString("messages." + path + ".message");
@@ -25,8 +27,12 @@ public class BossBarTask {
 				messages.add(new BossBarMessage(message, color, style));
 			} catch (Exception ignored) {
 				System.out.println("Error while trying to read a config entry in HubFun.");
+				failed++;
 			}
+			amount++;
 		}
+		Bukkit.getLogger().info("[HubFun] Attempting to load " + amount + " messages.");
+		Bukkit.getLogger().info("[HubFun] " + failed + " messages failed to load.");
 	}
 
 	private static int currentId = 0;
