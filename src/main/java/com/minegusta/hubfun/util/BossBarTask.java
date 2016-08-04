@@ -5,6 +5,7 @@ import com.minegusta.hubfun.Main;
 import net.minegusta.mglib.bossbars.BossBarUtil;
 import net.minegusta.mglib.bossbars.TimedBossBarHolder;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -21,7 +22,7 @@ public class BossBarTask {
 		int failed = 0;
 		for (String path : conf.getConfigurationSection("messages").getKeys(false)) {
 			try {
-				String message = conf.getString("messages." + path + ".message");
+				String message = ChatColor.translateAlternateColorCodes('&', conf.getString("messages." + path + ".message"));
 				BarColor color = BarColor.valueOf(conf.getString("messages." + path + ".color").toUpperCase());
 				BarStyle style = BarStyle.valueOf(conf.getString("messages." + path + ".style").toUpperCase());
 				messages.add(new BossBarMessage(message, color, style));
