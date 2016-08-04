@@ -42,7 +42,7 @@ public class BossBarTask {
 			@Override
 			public void run() {
 				BossBarMessage current = messages.get(currentId);
-				TimedBossBarHolder bar = BossBarUtil.createSecondCountdown(current.getMessage(), current.getColor(), current.getStyle(), 8);
+				TimedBossBarHolder bar = BossBarUtil.createSecondCountdown(current.getMessage(), current.getColor(), current.getStyle(), 5);
 				Bukkit.getOnlinePlayers().stream().forEach(bar::addPlayer);
 
 				currentId++;
@@ -50,7 +50,7 @@ public class BossBarTask {
 					currentId = 0;
 				}
 			}
-		}, 82, 82);
+		}, 100, 100);
 	}
 
 	public static void stop() {
