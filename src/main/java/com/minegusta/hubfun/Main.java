@@ -23,11 +23,9 @@ public class Main extends JavaPlugin {
         saveDefaultConfig();
 
         //BarAPI
-        if (Bukkit.getPluginManager().isPluginEnabled("BossBarAPI")) {
-            Bukkit.broadcastMessage("BossBarAPI Is Enabled!");
-            BossBarTask.init(getConfig());
-            BossBarTask.start();
-        }
+        BossBarTask.init(getConfig());
+        BossBarTask.start();
+
 
         //Task
         SPAWNTASK = Task.start();
