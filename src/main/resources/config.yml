@@ -1,25 +1,25 @@
 messages:
   welcome:
     message: '&bWelcome to Minegusta, &a%name%&b!'
-    style: 'NOTCHED_20'
+    style: 'SEGMENTED_20'
     color: BLUE
   races:
     message: '&fTry out our Races plugin in the survival world!'
-    style: 'NOTCHED_20'
+    style: 'SEGMENTED_20'
     color: PURPLE
   skyplots:
     message: '&3SkyBlock and Plots are both available in the hub!'
-    style: 'NOTCHED_20'
+    style: 'SEGMENTED_20'
     color: GREEN
   wasteland:
     message: '&4Can you survive Wasteland? Many have tried...'
-    style: 'NOTCHED_6'
+    style: 'SEGMENTED_6'
     color: RED
   reddit:
     message: '&4Join our SubReddit at /r/Minegusta'
-    style: 'NOTCHED_20'
+    style: 'SEGMENTED_20'
     color: WHITE
   website:
     message: '&dVisit www.Minegusta.net for more info!'
-    style: 'NOTCHED_20'
+    style: 'SEGMENTED_20'
     color: YELLOW

@@ -22,11 +22,11 @@ public class BossBarTask {
 		for (String path : conf.getConfigurationSection("messages").getKeys(false)) {
 			try {
 				String message = conf.getString("messages." + path + ".message");
-				BarColor color = BarColor.valueOf(conf.getString("messages." + path + ".color"));
-				BarStyle style = BarStyle.valueOf(conf.getString("messages." + path + ".style"));
+				BarColor color = BarColor.valueOf(conf.getString("messages." + path + ".color").toUpperCase());
+				BarStyle style = BarStyle.valueOf(conf.getString("messages." + path + ".style").toUpperCase());
 				messages.add(new BossBarMessage(message, color, style));
 			} catch (Exception ignored) {
-				System.out.println("Error while trying to read a config entry in HubFun.");
+				Bukkit.getLogger().info("Error while trying to read a config entry in HubFun.");
 				failed++;
 			}
 			amount++;
