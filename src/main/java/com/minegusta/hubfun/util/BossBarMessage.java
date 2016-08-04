@@ -1,13 +1,14 @@
 package com.minegusta.hubfun.util;
 
-import org.inventivetalent.bossbar.BossBarAPI;
+import org.bukkit.boss.BarColor;
+import org.bukkit.boss.BarStyle;
 
 public class BossBarMessage {
 	private String message;
-	private BossBarAPI.Color color;
-	private BossBarAPI.Style style;
+	private BarColor color;
+	private BarStyle style;
 
-	public BossBarMessage(String message, BossBarAPI.Color color, BossBarAPI.Style style) {
+	public BossBarMessage(String message, BarColor color, BarStyle style) {
 		this.message = message;
 		this.style = style;
 		this.color = color;
@@ -17,11 +18,11 @@ public class BossBarMessage {
 		return message;
 	}
 
-	public BossBarAPI.Style getStyle() {
+	public BarStyle getStyle() {
 		return style;
 	}
 
-	public BossBarAPI.Color getColor() {
+	public BarColor getColor() {
 		return color;
 	}
 }

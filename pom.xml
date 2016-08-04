@@ -20,10 +20,6 @@
             <id>md_5-releases</id>
             <url>http://repo.md-5.net/content/repositories/snapshots</url>
         </repository>
-        <repository>
-            <id>inventive-repo</id>
-            <url>https://repo.inventivetalent.org/content/groups/public/</url>
-        </repository>
     </repositories>
 
     <properties> <!-- It is important to keep up to date manually. -->
@@ -40,9 +36,9 @@
             <optional>false</optional>
         </dependency>
         <dependency>
-            <groupId>org.inventivetalent</groupId>
-            <artifactId>bossbarapi</artifactId>
-            <version>2.3.8</version>
+            <groupId>net.minegusta</groupId>
+            <artifactId>MGLib</artifactId>
+            <version>1.0.3</version>
         </dependency>
     </dependencies>
 
